@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StockLearn — 株式投資学習サイト
 
-## Getting Started
+株式投資を体系的に学べる Next.js 学習サイトです。`learning-site`（英会話）とは別プロジェクトとして、同じ Vercel アカウントにデプロイできます。
 
-First, run the development server:
+## 機能（現段階）
+
+- ホーム・コース一覧・レッスン閲覧
+- 3コース（基礎 / リスク管理 / 銘柄リサーチ）
+- 理解度クイズ（クライアント側）
+- ダッシュボード（静的・拡張予定）
+- 料金ページ（Stripe 連携は今後）
+
+## 開発
 
 ```bash
+cd stock-learning-site
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+デフォルトは http://localhost:3000 。英会話サイトと同時起動する場合:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run dev -- -p 3001
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Vercel デプロイ（同一アカウント・別プロジェクト）
 
-## Learn More
+```bash
+cd stock-learning-site
+npx vercel
+npx vercel --prod
+```
 
-To learn more about Next.js, take a look at the following resources:
+`learning-site` とは **別の Vercel プロジェクト** としてリンクしてください。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ディレクトリ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+cursol project/
+  learning-site/       … 英会話学習（既存）
+  stock-learning-site/ … 株式投資学習（本プロジェクト）
+```
 
-## Deploy on Vercel
+## 今後の拡張
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- DB・認証・Stripe（learning-site と同様）
+- 学習進捗の永続化
+- AI による問題生成・対話（任意）
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 免責
+
+本サイトは教育目的のコンテンツです。投資判断は自己責任で行ってください。
